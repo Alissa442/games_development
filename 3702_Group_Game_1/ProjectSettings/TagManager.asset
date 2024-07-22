@@ -15,10 +15,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - AI
+  - Pickup
+  - Floor
   - 
   - 
   - 
