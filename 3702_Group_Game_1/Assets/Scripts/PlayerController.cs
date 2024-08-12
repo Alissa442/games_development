@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Speed))]
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(HealthTicker))]
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody _rb;
-    public float speed = 4.0f;
+    //public float speed = 4.0f;
     public ControllerState state = ControllerState.ManualControl;
     public float turnSpeed = 10.0f;
+    public Speed _speed;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _speed = GetComponent<Speed>();
     }
 
     void Update()
@@ -25,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
             // Move the player
             Vector3 movement = new Vector3(horizontal, 0, vertical);
-            transform.position += movement * speed * Time.deltaTime;
+            transform.position += movement * _speed.movementSpeed * Time.deltaTime;
 
             // lerp to face the direction of movement
             if (movement != Vector3.zero)

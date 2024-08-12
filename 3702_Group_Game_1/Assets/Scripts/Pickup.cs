@@ -10,6 +10,9 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // If the object that collided with this one is not the player, return
+        if (!other.CompareTag("Player")) return;
+
         // If it's already been picked up, don't pick up again
         if (isPickedUp) return;
 
