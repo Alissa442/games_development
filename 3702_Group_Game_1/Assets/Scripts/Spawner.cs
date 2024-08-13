@@ -69,7 +69,7 @@ public class Spawner : MonoBehaviour
     }
 
     // Draw the spawn area in the Scene view
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Vector3 displayArea = new Vector3(spawnAreaSize.x, 0, spawnAreaSize.y);
         Gizmos.color = gizmoColor;

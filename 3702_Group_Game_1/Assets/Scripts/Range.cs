@@ -82,7 +82,7 @@ public class Range : MonoBehaviour
     }
 
     // Draw the range as a ring in the Scene view
-    private void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, range);
