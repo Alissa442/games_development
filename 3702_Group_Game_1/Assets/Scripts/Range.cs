@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Range : MonoBehaviour
 {
-    public float range = 2f;
+    public float range = 1f;
     const float MINIMUM_RANGE = 1f;
     SphereCollider _sphereCollider;
     LineRenderer _lineRenderer;
