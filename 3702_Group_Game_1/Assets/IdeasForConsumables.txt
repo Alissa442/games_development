@@ -1,0 +1,16 @@
+
+What we currently have:
+
+Health - Increases the health by x
+SpeedBoost - Increases the speed by x for y seconds
+Poison - Decreased the health by x
+Range - Increases the range by x for y seconds
+
+
+Consumable Ideas:
+
+Freeze - Where it freezes all the other NPCs/Player for x seconds
+Random Teleport - Teleports all the consumables to random locations
+Slow - Slows down the person for x seconds
+Shrink - Shrinks the range for x seconds
+

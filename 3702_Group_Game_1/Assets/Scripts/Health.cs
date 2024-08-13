@@ -10,7 +10,10 @@ public class Health : MonoBehaviour
     [SerializeField]
     private float _currentHealth;
 
-	public int Value
+	public FloatEvent onHealthChange;
+    public UnityEvent onDeath;
+
+    public int Value
 	{
 		get { return (int) _currentHealth; }
 		set { 
@@ -25,24 +28,17 @@ public class Health : MonoBehaviour
         }
     }
 
-	public FloatEvent onHealthChange;
-    public UnityEvent onDeath;
 
-    private void Start()
+    private void Awake()
     {
-        _currentHealth = _initialHealth;
+        SetHealth(_initialHealth);
     }
 
-    //public void TakeDamage(int damage)
-    //{
-    //    _currentHealth -= damage;
-    //    onHealthChange.Invoke(_currentHealth);
-    //    if (_currentHealth <= 0)
-    //    {
-    //        onDeath.Invoke();
-    //    }
-    //}
-
+    public void SetHealth(float value)
+    {
+        _currentHealth = value;
+        onHealthChange.Invoke(_currentHealth);
+    }
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
@@ -52,12 +48,6 @@ public class Health : MonoBehaviour
             onDeath.Invoke();
         }
     }
-
-    //public void Heal(int healAmount)
-    //{
-    //    _currentHealth += healAmount;
-    //    onHealthChange.Invoke(_currentHealth);
-    //}
 
     public void Heal(float healAmount)
     {
