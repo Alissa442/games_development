@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 1886881017853752902}
   - component: {fileID: 7029252936189756227}
   - component: {fileID: 8024811935962332123}
+  - component: {fileID: 6078838593245434601}
+  - component: {fileID: 1258781933155712928}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -83,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b1cd1d4bc65314585edf8205207390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialHealth: 100
+  _initialHealth: 20
   _currentHealth: 0
   onHealthChange:
     m_PersistentCalls:
@@ -289,8 +291,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePrefabs: {fileID: 0}
-  _healthText: {fileID: 0}
   offset: {x: 0, y: 2}
+--- !u!114 &6078838593245434601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254779403785836219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e7dd10eee7bdc42aa68c641a594e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  timeToDie: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  spawnsOnDeath: []
+--- !u!114 &1258781933155712928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254779403785836219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69c48dd804aa9647a229edd2c35e0c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5057851455938410183
 GameObject:
   m_ObjectHideFlags: 0

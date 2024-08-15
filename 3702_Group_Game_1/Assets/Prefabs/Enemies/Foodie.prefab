@@ -125,6 +125,8 @@ GameObject:
   - component: {fileID: 4864476552824583463}
   - component: {fileID: 5753745439882648605}
   - component: {fileID: 7194081059911379339}
+  - component: {fileID: 405157663554118334}
+  - component: {fileID: 7802640985072266091}
   m_Layer: 0
   m_Name: Foodie
   m_TagString: Player
@@ -388,6 +390,37 @@ MonoBehaviour:
   _agent: {fileID: 0}
   target: {fileID: 0}
   gameGlobalEvents: {fileID: 0}
+  gameState: {fileID: 0}
+--- !u!114 &405157663554118334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650517111565712427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171d6f01ad5b1b74d9691215b1478a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7802640985072266091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650517111565712427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e7dd10eee7bdc42aa68c641a594e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  timeToDie: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  spawnsOnDeath: []
 --- !u!1 &6506557184216320336
 GameObject:
   m_ObjectHideFlags: 0
