@@ -57,15 +57,26 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        Vector3 randomPosition = new Vector3(
-            Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
-            0,
-            Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2)
-        );
+        Vector3 randomPosition = GetRandomSpawnPosition();
+        //Vector3 randomPosition = new Vector3(
+        //    Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
+        //    0,
+        //    Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2)
+        //);
 
         //Debug.Log("Spawning at " + randomPosition);
 
         Instantiate(prefab, transform.position + randomPosition, Quaternion.identity);
+    }
+
+    public Vector3 GetRandomSpawnPosition()
+    {
+        return new Vector3(
+            Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
+            0,
+            Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2)
+);
+
     }
 
     // Draw the spawn area in the Scene view

@@ -5,9 +5,11 @@ using UnityEngine.AI;
 
 public class Speed : MonoBehaviour
 {
+    [Tooltip("The speed of the agent")]
     public float movementSpeed = 5f;
-    const float MINIMUM_SPEED = 1f;
-    private NavMeshAgent _agent;
+
+    const float MINIMUM_SPEED = 1f; // The minimum speed
+    private NavMeshAgent _agent;    // Navmesh agent cache
 
     private void OnEnable()
     {

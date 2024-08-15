@@ -28,7 +28,7 @@ public class GameStateSO : ScriptableObject
     {
         get
         {
-            // Lazy loading. If it's not
+            // Lazy loading. If it's not already loaded.
             if (GameStateSO.instance == null)
             {
                 instance = Resources.Load<GameStateSO>("GameState");
@@ -40,10 +40,10 @@ public class GameStateSO : ScriptableObject
 
     private void OnEnable()
     {
-        ServiceLocator.Instance.RegisterService("GameState", this);
+        // Service locator doesn't seem to be working...
+        //ServiceLocator.Instance.RegisterService("GameState", this);
 
-        if (gameGlobalEvents == null)
-            gameGlobalEvents = Resources.Load<GameGlobalEventsSO>("GameGlobalEvents");
+        gameGlobalEvents = GameGlobalEventsSO.Instance;
 
         // Subscribe to the appropriate events
         gameGlobalEvents.onEnemySpawned.AddListener(OnEnemySpawned);
@@ -88,7 +88,7 @@ public class GameStateSO : ScriptableObject
 
     }
 
-    // Shortcuts for Listeners
+    // Shortcuts for Player and NPC Listeners
     private void OnEnemySpawned(GameObject obj) { enemies.Add(obj); }
     private void OnEnemyDied(GameObject obj) { enemies.Remove(obj); }
     private void OnPlayerSpawned(GameObject obj) { players.Add(obj); }
@@ -107,7 +107,7 @@ public class GameStateSO : ScriptableObject
     private void OnPoisonPickedUp(GameObject obj) { poisons.Remove(obj); }
 
 
-    // Helper Methods
+    // Helper Method
 
     /// <summary>
     /// Find the closest item from a list of items

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WingeBabyStateMachine : StateMachine
 {
     private GameGlobalEventsSO _gameGlobalEvents;
-
+        
     void Start()
     {
         // Create the States

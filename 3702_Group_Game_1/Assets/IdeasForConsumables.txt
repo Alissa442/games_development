@@ -15,10 +15,23 @@ Plague - for x seconds, enemies in range take y (probably 1) damage per second t
 Slow - Slows down the person for x seconds
 Shrink - Shrinks the range for x seconds
 Random Teleport - Teleports all the consumables to random locations
+shield - debuff's don't affect you for up to 8 seconds
+magnet - pulls consumables towards the player for a while
+berserk - really fast but you lose life faster
+teleportation - teleports the player to a random spot on the map
 Gems - They have no effect but are used as currency for upgrades
+teleportation gub - like teleport in gauntlet - teleports you to another teleporter
 
 
 AI Ideas:
+
+
+
+enemy that lays down debuff potions
+
+
+enemy that freezes / plagues other players as much as they can.
+
 
 An enemy that avoids the poison
 
@@ -34,3 +47,11 @@ Enemy that freezes you if it touches you.
 
 
 Enemy that when it touches you, you get a random debuff
+
+
+
+Scope Creep ideas:
+
+Extra points for hard mode. Playing the game in first person mode.
+
+
