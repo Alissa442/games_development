@@ -4,17 +4,45 @@ using UnityEngine;
 
 public class MoveTowardsTarget : IState
 {
-    public void Tick(StateMachine stateMachine)
+    public IState onTargetGone; // What state to change to when the target is gone
+    private StateMachine _stateMachine; // The state machine that this state is attached to
+
+    /// <summary>
+    /// Constructor for the MoveTowardsTarget state
+    /// </summary>
+    /// <param name="stateMachine">The state machine that this is connected to</param>
+    /// <param name="onTargetGone">Which state should it change to when the target becomes null</param>
+    public MoveTowardsTarget(StateMachine stateMachine)
     {
-        // If there is no target, setState to null which will revert to the State Machines default state
-        if (stateMachine.target == null)
+        this._stateMachine = stateMachine;
+    }
+
+    public void Tick()
+    {
+        if (_stateMachine.target == null)
         {
-            stateMachine._agent.SetDestination(stateMachine.transform.position); // Stop moving if there is no target
-            stateMachine.currentState = stateMachine.defaultState;
+            // If there is no target, stop moving
+            _stateMachine._agent.SetDestination(_stateMachine.transform.position); // Stop moving if there is no target
+            // Set state to the state that we've been told to change to.
+            if (onTargetGone != null)
+                _stateMachine.currentState = onTargetGone;
+            else
+                // If that state is null, set the state to the default state
+                _stateMachine.currentState = _stateMachine.defaultState;
             return;
         }
 
-        // If there is a target, move towards it
-        stateMachine._agent.SetDestination(stateMachine.target.transform.position);
+        // If there is a target, tell the navmesh agent to move towards it
+        _stateMachine._agent.SetDestination(_stateMachine.target.transform.position);
+    }
+
+    /// <summary>
+    /// Set the transitions for the state
+    /// Only one transition is allowed for this state
+    /// </summary>
+    /// <param name="transitionsTo">What to transition to when the target no longer exists</param>
+    public void SetTransitions(params IState[] transitionsTo)
+    {
+        this.onTargetGone = transitionsTo[0];
     }
 }

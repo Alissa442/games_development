@@ -223,4 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afac0eb538fc1f64d98b8aaf09865cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthValue: 20
+  consumableName: 
+  gameGlobalEvents: {fileID: 0}
+  healthValue: 10

@@ -9,15 +9,28 @@ public abstract class StateMachine : MonoBehaviour
     public NavMeshAgent _agent;
     public GameObject target;
     public IState currentState;
-    public GameGlobalEventsSO gameGlobalEvents;
     public IState defaultState;
+
+    // Services for the State Machine
+    //public ServiceLocator serviceLocator;
+    public GameGlobalEventsSO gameGlobalEvents;
+    public GameStateSO gameState;
 
     protected virtual void OnEnable()
     {
-        if (gameGlobalEvents == null)
-            gameGlobalEvents = Resources.Load<GameGlobalEventsSO>("GameGlobalEvents");
+        //serviceLocator = ServiceLocator.Instance;
+        //gameState = ServiceLocator.Instance.GetService<GameStateSO>("GameState");
+
+        //if (gameGlobalEvents == null)
+        //    gameGlobalEvents = Resources.Load<GameGlobalEventsSO>("GameGlobalEvents");
+        //if (gameState == null)
+        //    gameState = Resources.Load<GameStateSO>("GameState");
 
         _agent = GetComponent<NavMeshAgent>();
+
+        // Kind of cheating. Turned it into a lazy loading singleton for easy access
+        gameState = GameStateSO.Instance;
+        gameGlobalEvents = GameGlobalEventsSO.Instance;
     }
 
     protected virtual void Update()
@@ -28,6 +41,6 @@ public abstract class StateMachine : MonoBehaviour
             currentState = defaultState;
         }
 
-        currentState.Tick(this);
+        currentState.Tick();
     }
 }
