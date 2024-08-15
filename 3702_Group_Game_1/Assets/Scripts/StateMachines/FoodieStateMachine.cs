@@ -24,39 +24,7 @@ public class FoodieStateMachine : StateMachine
         defaultState = inefficientSearchForFoodState;
 
         // Starts in look for food state
-        currentState = defaultState;
+        ChangeState(defaultState);
     }
-
-    ///// <summary>
-    ///// When new food is spawned, check if the new food is closer
-    ///// </summary>
-    ///// <param name="newFood"></param>
-    //void NewFood(GameObject newFood)
-    //{
-    //    // If there is no target, set the new food as the target
-    //    if (target == null)
-    //    {
-    //        target = newFood;
-    //        _agent.SetDestination(target.transform.position);
-    //        return;
-    //    }
-
-    //    // If for some reason the new food is the same as the target, just return
-    //    if (newFood == target)
-    //        return;
-
-    //    // If the new food is closer switch targets
-    //    if (Vector3.Distance(transform.position, newFood.transform.position) < Vector3.Distance(transform.position, target.transform.position))
-    //    {
-    //        target = newFood;
-    //        _agent.SetDestination(target.transform.position);
-    //    }
-    //}
-
-    //private void OnDestroy()
-    //{
-    //    // Deregister the event to listen for new food
-    //    gameGlobalEvents.onFoodSpawned.RemoveListener(NewFood);
-    //}
 
 }

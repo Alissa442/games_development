@@ -44,10 +44,10 @@ public class InefficientSearchForFood : IState
         // Set the destination to the closest food
         _stateMachine.target = closestFood;
         if (onTargetFound != null)
-            _stateMachine.currentState = onTargetFound;
+            _stateMachine.ChangeState(onTargetFound);
         else
             // If that state is null, set the state to the default state
-            _stateMachine.currentState = _stateMachine.defaultState;
+            _stateMachine.ChangeState(_stateMachine.defaultState);
     }
 
     /// <summary>

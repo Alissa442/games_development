@@ -44,7 +44,7 @@ public class Tantrum : IState
             isTantruming = true;
             tantrumEndTime = Time.time + tantrumDuration;
 
-            Debug.Log("Starting Tantrum.");
+            Debug.Log("Hey, that was mine. Starting Tantrum.");
             // TODO Start Tantrum animation
         }
 

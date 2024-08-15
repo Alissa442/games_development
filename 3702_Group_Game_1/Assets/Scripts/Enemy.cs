@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
 
     }
 
-
     private void OnDisable()
     {
         health.onDeath.RemoveListener(_die.Invoke);

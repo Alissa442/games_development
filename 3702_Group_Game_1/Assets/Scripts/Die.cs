@@ -9,33 +9,36 @@ using UnityEngine.Events;
 /// </summary>
 public class Die : MonoBehaviour
 {
-    public bool isDead = false;
-    public float timeToDie = 2f; // How long before you kill it so you can play animations
+    [Tooltip("How long before the entity dies. If 0, it will die immediately. If greater than 0, it will die after that time.")]
+    public float timeToDie = 0f;
 
+    [Tooltip("The event that will be invoked when this entity dies.")]
     public UnityEvent onDeath;
 
-    // The game objects that will spawn when this entity dies
-    // Typically this is the effects of the entity dying
-    // Visual or sound effects
+    [Tooltip("The game objects that will spawn when this entity dies. Typically this is the effects of the entity dying. Visual or sound effects.")]
     public GameObject[] spawnsOnDeath;
+
+    [Tooltip("If true, the object will be returned to the object pool when it dies. Not yet enabled.")]
+    public bool useObjectPool = false;
+
+    [Tooltip("Is this dead? Read only attribute")]
+    [ReadOnly]
+    public bool isDead = false;
 
     /// <summary>
     /// Invoke this method when an entity dies
     /// </summary>
+    [MethodButton("Invoke Death")]
     public void Invoke()
     {
         // Don't do anything if the entity is already dead
         if (isDead)
             return;
 
-        // Invoke the appropriate event
+        // Invoke the death event to call the appropriate methods.
         onDeath.Invoke();
 
-        // Spawn the effects of the entity dying
-        foreach (GameObject spawn in spawnsOnDeath)
-        {
-            Instantiate(spawn, transform.position, Quaternion.identity);
-        }
+        SpawnDeathEffects();
 
         // Set it to dead so it can't die again
         isDead = true;
@@ -44,8 +47,20 @@ public class Die : MonoBehaviour
             ItsDeadJim();
         else
         {
-            Debug.Log("I'm dying");
+            //Debug.Log("I'm dying");
             StartCoroutine(DieCoroutine());
+        }
+    }
+
+    /// <summary>
+    /// Spawn the Death Effects
+    /// </summary>
+    [MethodButton("Spawn Death Effects")]
+    public void SpawnDeathEffects()
+    {
+        foreach (GameObject spawn in spawnsOnDeath)
+        {
+            Instantiate(spawn, transform.position, Quaternion.identity);
         }
     }
 
@@ -60,8 +75,26 @@ public class Die : MonoBehaviour
     /// </summary>
     private void ItsDeadJim()
     {
-        Debug.Log("I'm dead");
-        Destroy(gameObject);
+        //Debug.Log("I'm dead");
+        Destroy(gameObject); // Of course we should be using an object pool
     }
 
+    /// <summary>
+    /// Resetting in case we want to use the same entity again
+    /// in a object pool
+    /// </summary>
+    private void OnEnable()
+    {
+        isDead = false;
+    }
+
+    /// <summary>
+    /// Resetting in case we want to use the same entity again
+    /// for instance in an object pool
+    /// </summary>
+    private void OnDisable()
+    {
+        isDead = false;
+        StopAllCoroutines();
+    }
 }

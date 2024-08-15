@@ -25,10 +25,10 @@ public class MoveTowardsTarget : IState
             _stateMachine._agent.SetDestination(_stateMachine.transform.position); // Stop moving if there is no target
             // Set state to the state that we've been told to change to.
             if (onTargetGone != null)
-                _stateMachine.currentState = onTargetGone;
+                _stateMachine.ChangeState(onTargetGone);
             else
                 // If that state is null, set the state to the default state
-                _stateMachine.currentState = _stateMachine.defaultState;
+                _stateMachine.ChangeState(_stateMachine.defaultState);
             return;
         }
 
