@@ -16,7 +16,11 @@ public class WingeBabyStateMachine : StateMachine
         // Set the transitions for the states
         lookForConsumableBalancedState.SetTransitions(wingeMoveTowardsTarget);
         wingeMoveTowardsTarget.SetTransitions(lookForConsumableBalancedState, tantrumState);
+        // Set the nerd rage threshold to 10 and the tantrum threshold to 3
+        wingeMoveTowardsTarget.SetThresholds(10, 3);
         tantrumState.SetTransitions(lookForConsumableBalancedState);
+        // Set the tantrum duration to 3 seconds
+        tantrumState.SetTantrumDuration(3.0f);
 
         // Set the default state
         defaultState = lookForConsumableBalancedState;

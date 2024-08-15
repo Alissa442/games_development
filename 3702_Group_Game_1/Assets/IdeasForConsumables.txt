@@ -10,7 +10,27 @@ Range - Increases the range by x for y seconds
 Consumable Ideas:
 
 Freeze - Where it freezes all the other NPCs/Player for x seconds
-Random Teleport - Teleports all the consumables to random locations
+or Freeze. For x seconds, anytime you touch another character, you freeze them for y seconds.
+Plague - for x seconds, enemies in range take y (probably 1) damage per second that they're in range of you.
 Slow - Slows down the person for x seconds
 Shrink - Shrinks the range for x seconds
+Random Teleport - Teleports all the consumables to random locations
+Gems - They have no effect but are used as currency for upgrades
 
+
+AI Ideas:
+
+An enemy that avoids the poison
+
+
+An enemy that poison is food and food is poison
+Range is speed, and speed is range.
+
+
+Enemy that pushes you around (physically)
+
+
+Enemy that freezes you if it touches you.
+
+
+Enemy that when it touches you, you get a random debuff

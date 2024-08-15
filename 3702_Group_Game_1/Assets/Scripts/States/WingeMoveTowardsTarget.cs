@@ -8,9 +8,10 @@ public class WingeMoveTowardsTarget : IState
     public IState onReachedTarget; // What state to change to when the target is reached
     private StateMachine _stateMachine; // The state machine that this state is attached to
 
-    private float _chanceOfWinge = 0.3f; // What's the chance that this NPC will winge if item is stolen
-
     private int stolenInARow = 0; // How many in a row have been stolen from the NPC
+
+    private int iQuitThreshold = 10;
+    private int tantrumThreshold = 3;
 
     public WingeMoveTowardsTarget(StateMachine stateMachine)
     {
@@ -29,9 +30,10 @@ public class WingeMoveTowardsTarget : IState
         onTargetStolen = transitionsTo[1];
     }
 
-    public void SetChanceOfWinge(float chance)
+    public void SetThresholds(int iQuit, int tantrum)
     {
-        _chanceOfWinge = chance;
+        iQuitThreshold = iQuit;
+        tantrumThreshold = tantrum;
     }
 
     public void Tick()

@@ -36,7 +36,7 @@ public class LookForConsumableBalanced : IState
         if (_stateMachine.health <= 10)
         {
             // If the health is low, prioritise health
-            Debug.Log("Food is now a priority");
+            //Debug.Log("Food is now a priority");
             priorities[0] = HIGH_FOOD_PRIORITY;
         }
         else
