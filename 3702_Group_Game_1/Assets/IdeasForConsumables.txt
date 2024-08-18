@@ -21,6 +21,7 @@ berserk - really fast but you lose life faster
 teleportation - teleports the player to a random spot on the map
 Gems - They have no effect but are used as currency for upgrades
 teleportation gub - like teleport in gauntlet - teleports you to another teleporter
+Mine - Where is blows up and does AOE damage. If you have enough range, you can set it off when not in range.
 
 
 AI Ideas:
@@ -53,5 +54,25 @@ Enemy that when it touches you, you get a random debuff
 Scope Creep ideas:
 
 Extra points for hard mode. Playing the game in first person mode.
+
+
+Each Ability (Damage [poison, kinetic, fire, cold[ and healing) has a type.
+Enemies and players can have resistances to ability types.
+
+
+Upgrade Shop (permanent) Upgrades Ideas (Per point): (Each Enemy can have these too)
+Range increased by 0.1
+Speed increased by 0.1
+Initial health increased by 1
+You start the game 0.1 second early
+
+Consumable Updates:
+Food gives you more health by 1
+Range boost gives you more range by 0.1
+Speed boost increases your speed by 0.1
+
+Mines Protection
+Poison affects you 1 less damage
+Freeze lasts 1 second less for you
 
 
