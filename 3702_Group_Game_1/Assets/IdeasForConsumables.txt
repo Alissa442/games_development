@@ -53,6 +53,10 @@ Enemy that when it touches you, you get a random debuff
 
 Scope Creep ideas:
 
+The more tournaments the player wins, the fatter they get.
+They start slower but with more health.
+
+
 Extra points for hard mode. Playing the game in first person mode.
 
 
@@ -65,6 +69,7 @@ Range increased by 0.1
 Speed increased by 0.1
 Initial health increased by 1
 You start the game 0.1 second early
+Diet pills. You get thinner, move faster but lose health.
 
 Consumable Updates:
 Food gives you more health by 1
