@@ -13,6 +13,7 @@ public class WinConditionManager : MonoBehaviour
 
     public GameObject winScreen;
     public GameObject loseScreen;
+    public float delayBeforeLoadingNextScene = 4f;
 
     void Update()
     {
@@ -58,6 +59,14 @@ public class WinConditionManager : MonoBehaviour
         // Display the win screen
         winScreen.SetActive(true);
 
+        // Add Gems to PlayerGem in PlayerPrefs
+        int currentCurrency = PlayerPrefs.GetInt("PlayerCurrency", 0);
+        Rewards rewards = GetComponent<Rewards>();
+        //Debug.Log("Existing Gems: " + currentCurrency + " reward gems: " + rewards.rewardAmount);
+        currentCurrency += rewards.rewardAmount;
+        PlayerPrefs.SetInt("PlayerCurrency", currentCurrency);
+        PlayerPrefs.Save(); // Ensure the data is written to disk
+
         // Calls the coroutine LoadUpgradesSceneCoroutine
         StartCoroutine(LoadUpgradesSceneCoroutine());
     }
@@ -76,11 +85,11 @@ public class WinConditionManager : MonoBehaviour
         StartCoroutine(LoadUpgradesSceneCoroutine());
     }
 
-    // Coroutine to load the Upgrades scene after a delay of 4 seconds
+    // Coroutine to load the Upgrades scene after a delay
     private IEnumerator LoadUpgradesSceneCoroutine()
     {
-        // Wait for 4 seconds
-        yield return new WaitForSeconds(4f);
+        // Wait before loading next scene
+        yield return new WaitForSeconds(delayBeforeLoadingNextScene);
 
         // Load the Upgrades scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("Upgrades");
