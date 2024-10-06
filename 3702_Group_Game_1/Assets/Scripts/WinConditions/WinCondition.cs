@@ -64,7 +64,7 @@ public abstract class WinCondition : MonoBehaviour
     }
 
     // This method is called when the script is loaded or a value is changed in the Inspector
-    private void OnValidate()
+    protected virtual void OnValidate()
     {
         // If this script is enabled, show it in the UI panel, otherwise hide it
         if (uiPanel == null)

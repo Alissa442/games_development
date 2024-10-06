@@ -992,7 +992,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collect X food 0 / X
+  m_text: "Collect Food \n0 / 2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x3
+  m_text: x2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1995,7 +1995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &783134784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2013,9 +2013,9 @@ RectTransform:
   - {fileID: 1443023767}
   m_Father: {fileID: 2124188696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 109.34015, y: -209.7812}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 206.1352, y: 69.8646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783134785
@@ -2660,6 +2660,7 @@ GameObject:
   - component: {fileID: 945448665}
   - component: {fileID: 945448667}
   - component: {fileID: 945448666}
+  - component: {fileID: 945448668}
   m_Layer: 0
   m_Name: WinConditions
   m_TagString: Untagged
@@ -2694,7 +2695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd4f1a79e61f47449d23a7707c357df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardAmount: 3
+  rewardAmount: 2
   rewardText: {fileID: 473757025}
 --- !u!114 &945448666
 MonoBehaviour:
@@ -2729,6 +2730,24 @@ MonoBehaviour:
   winConditions: []
   winScreen: {fileID: 1891385143}
   loseScreen: {fileID: 128834002}
+  delayBeforeLoadingNextScene: 4
+--- !u!114 &945448668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945448663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f3f6961f93e8a45848d9e25e1e1451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiPanel: {fileID: 783134783}
+  uiWinConditionTrue: {fileID: 1443023766}
+  uiWinConditionFalse: {fileID: 1506255327}
+  foodToCollect: 2
+  foodText: {fileID: 308297150}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
