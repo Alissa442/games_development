@@ -16,11 +16,11 @@ public class Rewards : MonoBehaviour
         }
         else
         {
-            Debug.Log("Reward Amount: " + rewardAmount);
+            //Debug.Log("Reward Amount: " + rewardAmount);
             // Apply IncreasedRewards research from the playerprefs
             int increaseRewardsLevels = PlayerPrefs.GetInt("IncreaseRewards", 0);
             rewardAmount += Mathf.FloorToInt(increaseRewardsLevels * 0.1f);
-            Debug.Log("Reward Amount: " + rewardAmount);
+            //Debug.Log("Reward Amount: " + rewardAmount);
 
             UpdateRewardText();
         }
