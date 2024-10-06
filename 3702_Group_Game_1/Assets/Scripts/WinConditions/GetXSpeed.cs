@@ -3,40 +3,41 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GetXRange : WinCondition
+public class GetXSpeed : WinCondition
 {
-    public float rangeToGet = 4;
-    public TextMeshProUGUI rangeText;
+    public float speedToGet = 3;
+    public TextMeshProUGUI speedText;
 
     private GameObject player;
-    private Range playerRange;
+    private Speed playerSpeed;
 
-    private float highestRange = 1f;
+    private float highestSpeed = 1f;
 
     void Start()
     {
-        // Find the player
         player = GameObject.FindGameObjectWithTag("Player");
-        playerRange = player.GetComponent<Range>();
+        playerSpeed = player.GetComponent<Speed>();
 
-        highestRange = playerRange.range;
+        highestSpeed = playerSpeed.movementSpeed;
         UpdateUI();
+
     }
 
+    // Update is called once per frame
     void Update()
     {
-        CheckPlayerRange();
+        CheckPlayerSpeed();
     }
 
-    private void CheckPlayerRange()
+    private void CheckPlayerSpeed()
     {
-        if (playerRange.range > highestRange)
+        if (playerSpeed.movementSpeed > highestSpeed)
         {
-            highestRange = playerRange.range;
+            highestSpeed = playerSpeed.movementSpeed;
             UpdateUI();
         }
 
-        if (highestRange >= rangeToGet)
+        if (highestSpeed >= speedToGet)
         {
             IsWinConditionMet = true;
         }
@@ -45,7 +46,7 @@ public class GetXRange : WinCondition
     private void UpdateUI()
     {
         // Update the UI to show the highest range and range to get
-        rangeText.text = $"Get Range\n{highestRange} / {rangeToGet}";
+        speedText.text = $"Get Speed\n{highestSpeed} / {speedToGet}";
     }
 
     protected override void OnValidate()
