@@ -994,7 +994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Collect Food \n0 / 2"
+  m_text: "Eat Food \n0 / 2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4617,9 +4617,9 @@ RectTransform:
   - {fileID: 767997864}
   - {fileID: 88010596}
   - {fileID: 783134784}
-  - {fileID: 1385032306}
   - {fileID: 1163714542}
   - {fileID: 1714734341}
+  - {fileID: 1385032306}
   - {fileID: 150282626}
   m_Father: {fileID: 921225620}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

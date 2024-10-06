@@ -59,7 +59,8 @@ public class Health : MonoBehaviour
     }
 
     // Used by the ticker to damage the character each second
-    public void ApplyHealthTickerDamage( float damage )
+    // Also intended to be used by boss attacks
+    public void TakeUnavoidableDamage( float damage )
     {
         _currentHealth = _currentHealth - damage;
         onHealthChange.Invoke(_currentHealth);
