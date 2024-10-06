@@ -572,7 +572,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Time Limit
 
-    X secs left'
+    0 / 30'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -742,7 +742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &150282626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -760,9 +760,9 @@ RectTransform:
   - {fileID: 1550665798}
   m_Father: {fileID: 2124188696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 109.34015, y: -434.375}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 206.1352, y: 69.8646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &150282627
@@ -2667,6 +2667,7 @@ GameObject:
   - component: {fileID: 945448668}
   - component: {fileID: 945448669}
   - component: {fileID: 945448670}
+  - component: {fileID: 945448671}
   m_Layer: 0
   m_Name: WinConditions
   m_TagString: Untagged
@@ -2788,6 +2789,23 @@ MonoBehaviour:
   uiWinConditionFalse: {fileID: 973993091}
   speedToGet: 3
   speedText: {fileID: 462017890}
+--- !u!114 &945448671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945448663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23dc8a9f0ae9af4d95967cfc0a7119f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiPanel: {fileID: 150282625}
+  uiWinConditionTrue: {fileID: 1550665797}
+  uiWinConditionFalse: {fileID: 820055960}
+  timeLimit: 30
+  timeText: {fileID: 125172156}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
