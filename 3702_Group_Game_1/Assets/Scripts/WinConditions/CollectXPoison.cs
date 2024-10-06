@@ -38,7 +38,7 @@ public class CollectXPoison : WinCondition
         // Check the food was collected by the player
         if (whoPickedItUp != player)
         {
-            Debug.Log("Not picked up by player");
+            //Debug.Log("Not picked up by player");
             return;
         }
 
@@ -46,7 +46,7 @@ public class CollectXPoison : WinCondition
         ConsumablePoison poison = consumable.GetComponent<ConsumablePoison>();
         if (poison == null)
         {
-            Debug.Log("Not poison");
+            //Debug.Log("Not poison");
             return;
         }
 
