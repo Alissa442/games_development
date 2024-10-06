@@ -7,6 +7,11 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     private float _initialHealth = 100;
+    [Tooltip("How much extra healing will healing effects give. Negatives can have food deal you damage.")]
+    public float healingBonus = 0f;
+    [Tooltip("How much less damage will poison effects deal. Too much can have you heal when eating poison.")]
+    public float poisonBonus = 0f;
+
     [SerializeField]
     private float _currentHealth;
 
@@ -39,9 +44,13 @@ public class Health : MonoBehaviour
         _currentHealth = value;
         onHealthChange.Invoke(_currentHealth);
     }
+
+    // Used to poison the character
     public void TakeDamage(float damage)
     {
-        _currentHealth -= damage;
+        float takingDamage = damage - poisonBonus;
+        Debug.Log(damage + " - " + poisonBonus + " = " + takingDamage);
+        _currentHealth = _currentHealth - takingDamage;
         onHealthChange.Invoke(_currentHealth);
         if (_currentHealth <= 0)
         {
@@ -49,9 +58,21 @@ public class Health : MonoBehaviour
         }
     }
 
+    // Used by the ticker to damage the character each second
+    public void ApplyHealthTickerDamage( float damage )
+    {
+        _currentHealth = _currentHealth - damage;
+        onHealthChange.Invoke(_currentHealth);
+        if (_currentHealth <= 0)
+        {
+            onDeath.Invoke();
+        }
+    }
+
+    // Used to heal the character (food)
     public void Heal(float healAmount)
     {
-        _currentHealth += healAmount;
+        _currentHealth = _currentHealth + healAmount + healingBonus;
         onHealthChange.Invoke(_currentHealth);
     }
 

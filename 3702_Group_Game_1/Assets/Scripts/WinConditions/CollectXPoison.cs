@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
-public class CollectXFood : WinCondition
+public class CollectXPoison : WinCondition
 {
-    public int foodToCollect = 4;
-    private int foodCollected = 0;
-    public TextMeshProUGUI foodText;
+    public int poisonToCollect = 4;
+    private int poisonCollected = 0;
+    public TextMeshProUGUI poisonText;
 
     private GameObject player;
 
@@ -43,16 +43,16 @@ public class CollectXFood : WinCondition
         }
 
         // Check it was a food that was picked up
-        ConsumableFood food = consumable.GetComponent<ConsumableFood>();
-        if (food == null)
+        ConsumablePoison poison = consumable.GetComponent<ConsumablePoison>();
+        if (poison == null)
         {
-            Debug.Log("Not food");
+            Debug.Log("Not poison");
             return;
         }
 
         // If so, increment the food collected count
-        foodCollected++;
-        if (foodCollected >= foodToCollect)
+        poisonCollected++;
+        if (poisonCollected >= poisonToCollect)
         {
             IsWinConditionMet = true;
         }
@@ -71,7 +71,7 @@ public class CollectXFood : WinCondition
 
     public void UpdateUI()
     {
-        foodText.text = $"Eat Food \n{foodCollected} / {foodToCollect}";
+        poisonText.text = $"Eat Poison \n{poisonCollected} / {poisonToCollect}";
     }
 
 }

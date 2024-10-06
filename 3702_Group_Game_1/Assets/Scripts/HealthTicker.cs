@@ -28,7 +28,7 @@ public class HealthTicker : MonoBehaviour
     {
         if (Time.time >= timeOfNextTick)
         {
-            _health.TakeDamage(_damagePerTick);
+            _health.ApplyHealthTickerDamage(_damagePerTick);
             timeOfNextTick = timeOfNextTick + _timeBetweenTicks;
             timeOfLastTick = Time.time;
         }

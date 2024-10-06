@@ -20,7 +20,7 @@ public class TimeLimit : WinCondition
     {
         if (timeRemaining > 0)
         {
-            timeRemaining -= Time.deltaTime;
+            timeRemaining -= Time.deltaTime; // Tick the timer down by deltaTime
             UpdateUI();
         }
         else
@@ -33,10 +33,8 @@ public class TimeLimit : WinCondition
 
     void UpdateUI()
     {
-        // Round the time remaining up to the nearest second
-
-        int timeToDisplay = Mathf.CeilToInt(timeRemaining);
-        timeToDisplay = Mathf.Max(0, timeToDisplay); // Don't show less than 0 seconds remaining
+        int timeToDisplay = Mathf.CeilToInt(timeRemaining);    // Round the time remaining up to the nearest second
+        timeToDisplay = Mathf.Max(0, timeToDisplay);        // Don't show less than 0 seconds remaining
 
         // Update the UI to show the highest range and range to get
         timeText.text = $"Time Limit\n{timeToDisplay} / {timeLimit}";

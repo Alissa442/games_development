@@ -7,9 +7,21 @@ using UnityEngine;
 public class Range : MonoBehaviour
 {
     public float range = 1f;
+    [Tooltip("How much longer than the programmed amount will effects last.")]
+    public float effectTimeBonus = 0f;
+
     const float MINIMUM_RANGE = 1f;
     SphereCollider _sphereCollider;
     LineRenderer _lineRenderer;
+
+    // Used to increase range permanently.
+    // The intended use is for applying research upgrades
+    public void IncreaseRangePermanently(float rangeBoost)
+    {
+        range += rangeBoost;
+        _sphereCollider.radius = range;
+        UpdateRangeVisual();
+    }
 
     public void IncreaseRange(float rangeBoost, float lengthOfTime)
     {
@@ -18,7 +30,7 @@ public class Range : MonoBehaviour
         _sphereCollider.radius = range;
         UpdateRangeVisual();
 
-        StartCoroutine(RangeBoost(rangeBoost, lengthOfTime));
+        StartCoroutine(RangeBoost(rangeBoost, lengthOfTime + effectTimeBonus));
     }
 
     public void DecreaseRange(float rangeBoost, float lengthOfTime)
@@ -28,7 +40,7 @@ public class Range : MonoBehaviour
         _sphereCollider.radius = range;
         UpdateRangeVisual();
 
-        StartCoroutine(RangeBoost(-changeOfRange, lengthOfTime));
+        StartCoroutine(RangeBoost(-changeOfRange, lengthOfTime + effectTimeBonus));
     }
 
     private IEnumerator RangeBoost(float rangeBoost, float lengthOfTime)
