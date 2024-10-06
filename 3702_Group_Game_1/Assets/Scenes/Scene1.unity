@@ -434,7 +434,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get X Range 0 / X
+  m_text: 'Get Range
+
+    0 / 5'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2661,6 +2663,7 @@ GameObject:
   - component: {fileID: 945448667}
   - component: {fileID: 945448666}
   - component: {fileID: 945448668}
+  - component: {fileID: 945448669}
   m_Layer: 0
   m_Name: WinConditions
   m_TagString: Untagged
@@ -2748,6 +2751,23 @@ MonoBehaviour:
   uiWinConditionFalse: {fileID: 1506255327}
   foodToCollect: 2
   foodText: {fileID: 308297150}
+--- !u!114 &945448669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945448663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454f81e1fa327dd489d54c2f355c84b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiPanel: {fileID: 1163714541}
+  uiWinConditionTrue: {fileID: 84643529}
+  uiWinConditionFalse: {fileID: 1350028039}
+  rangeToGet: 5
+  rangeText: {fileID: 92284606}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,7 +3083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1163714542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3081,9 +3101,9 @@ RectTransform:
   - {fileID: 84643530}
   m_Father: {fileID: 2124188696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 109.34015, y: -284.6458}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 206.1352, y: 69.8646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1163714543
