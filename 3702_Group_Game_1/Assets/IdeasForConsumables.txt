@@ -9,6 +9,7 @@ Range - Increases the range by x for y seconds
 
 Consumable Ideas:
 
+Gems - They have no effect but are used as currency for upgrades
 Freeze - Where it freezes all the other NPCs/Player for x seconds
 or Freeze. For x seconds, anytime you touch another character, you freeze them for y seconds.
 Plague - for x seconds, enemies in range take y (probably 1) damage per second that they're in range of you.
@@ -19,9 +20,8 @@ shield - debuff's don't affect you for up to 8 seconds
 magnet - pulls consumables towards the player for a while
 berserk - really fast but you lose life faster
 teleportation - teleports the player to a random spot on the map
-Gems - They have no effect but are used as currency for upgrades
-teleportation gub - like teleport in gauntlet - teleports you to another teleporter
-Mine - Where is blows up and does AOE damage. If you have enough range, you can set it off when not in range.
+teleportation hub - like teleport in gauntlet - teleports you to another teleporter
+Mine - Where it blows up and does AOE damage. If you have enough range, you can set it off when not in range.
 
 
 AI Ideas:
@@ -52,6 +52,8 @@ Enemy that when it touches you, you get a random debuff
 
 
 Scope Creep ideas:
+
+Certain technologies only become available when the player has unlocked certain levels. Keep the upgrade if you bought it and lost the level though.
 
 The more tournaments the player wins, the fatter they get.
 They start slower but with more health.

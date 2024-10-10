@@ -2267,7 +2267,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1271722209}
   m_HandleRect: {fileID: 1271722208}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.50000006
   m_Size: 0.28304234
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6814,7 +6814,7 @@ MonoBehaviour:
   abilityText: {fileID: 1872878621}
   playerPrefKey: PrematureStarving
   abilityName: Premature Starving
-  tooltipText: Starts the round earlier by 0.1 second per level
+  tooltipText: You start the round earlier by 0.1 second per level
   currentLevel: 0
   maxLevel: 20
 --- !u!114 &1256729966
@@ -7619,7 +7619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.4702, y: -438.08835}
+  m_AnchoredPosition: {x: 5.4702, y: -0.000045776367}
   m_SizeDelta: {x: 472.2167, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363333621

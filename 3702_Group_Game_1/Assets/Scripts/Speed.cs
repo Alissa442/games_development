@@ -13,6 +13,8 @@ public class Speed : MonoBehaviour
     const float MINIMUM_SPEED = 1f; // The minimum speed
     private NavMeshAgent _agent;    // Navmesh agent cache
 
+    public bool canMove = true;
+
     private void OnEnable()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -45,6 +47,34 @@ public class Speed : MonoBehaviour
         StartCoroutine(SpeedBoost(-changeOfSpeed, lengthOfTime + effectTimeBonus));
     }
 
+    // For the freeze ability/curse
+    public void Freeze(float lengthOfTime)
+    {
+        setCannotMove();
+        StartCoroutine(Unfreeze(lengthOfTime));
+    }
+
+    private IEnumerator Unfreeze(float lengthOfTime)
+    {
+        yield return new WaitForSeconds(lengthOfTime);
+
+        setCanMove();
+    }
+
+    // For the start/end of the game to prevent the player/enemy from moving
+    public void setCannotMove()
+    {
+        canMove = false;
+        SetAgentSpeed();
+    }
+
+    // For the start of the game to allow the player/enemy to move
+    public void setCanMove()
+    {
+        canMove = true;
+        SetAgentSpeed();
+    }
+
     private IEnumerator SpeedBoost(float speedBoost, float lengthOfTime)
     {
         yield return new WaitForSeconds(lengthOfTime);
@@ -56,6 +86,16 @@ public class Speed : MonoBehaviour
     private void SetAgentSpeed()
     {
         if (_agent != null)
-            _agent.speed = movementSpeed;
+        {
+            // If they can move, set the speed to the movement speed, otherwise, set it to 0
+            if (canMove)
+            {
+                _agent.speed = movementSpeed;
+            }
+            else
+            {
+                _agent.speed = 0;
+            }
+        }
     }
 }

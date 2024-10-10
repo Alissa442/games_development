@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Don't move if you can't move
+        if (!_speed.canMove)
+            return;
 
         if (state == ControllerState.ManualControl)
         {

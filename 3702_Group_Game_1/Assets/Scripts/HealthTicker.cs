@@ -12,25 +12,29 @@ public class HealthTicker : MonoBehaviour
 
     [SerializeField] 
     Health _health;
-    [SerializeField]
-    float timeOfLastTick = 0;
-    [SerializeField]
-    float timeOfNextTick = 0;
+
+    private float timeLeftInTick = 0;
+
+    [Tooltip("Whether we're ticking down life currently. Used at the start of the game or for invulnerability Vampires maybe?")]
+    public bool isCurrentlyTicking = true;
 
     void Start()
     {
         _health = GetComponent<Health>();
-        timeOfLastTick = Time.time;
-        timeOfNextTick = Time.time + _timeBetweenTicks;
+        timeLeftInTick = _timeBetweenTicks;
     }
 
     void Update()
     {
-        if (Time.time >= timeOfNextTick)
+        // If we are not ticking, we don't need to do anything
+        if (!isCurrentlyTicking) return;
+
+        timeLeftInTick -= Time.deltaTime;
+
+        if (timeLeftInTick <= 0)
         {
             _health.TakeUnavoidableDamage(_damagePerTick);
-            timeOfNextTick = timeOfNextTick + _timeBetweenTicks;
-            timeOfLastTick = Time.time;
+            timeLeftInTick += _timeBetweenTicks;
         }
         
     }
