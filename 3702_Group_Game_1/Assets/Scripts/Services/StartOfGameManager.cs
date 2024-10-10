@@ -54,6 +54,7 @@ public class StartOfGameManager : MonoBehaviour
         // Start the coroutines
         StartCoroutine(StartGame());
         StartCoroutine(HideTooltip());
+        StartCoroutine(LetPlayerMove());
 
     }
 
@@ -70,13 +71,6 @@ public class StartOfGameManager : MonoBehaviour
         // Hide the countdown Panel
         countdownPanel.SetActive(false);
 
-        // Let the player move and start ticking down their life
-        if (player != null)
-        {
-            player.GetComponent<Speed>().setCanMove();
-            player.GetComponent<HealthTicker>().isCurrentlyTicking = true;
-        }
-
         // Let the enemies Move and start ticking down their life
         foreach (GameObject enemy in enemies)
         {
@@ -85,6 +79,21 @@ public class StartOfGameManager : MonoBehaviour
                 enemy.GetComponent<Speed>().setCanMove();
                 enemy.GetComponent<HealthTicker>().isCurrentlyTicking = true;
             }
+        }
+    }
+
+    private IEnumerator LetPlayerMove()
+    {
+        // Get the time the player gets to move early from player prefs
+        float playerStartTimeBenefit = PlayerPrefs.GetInt("PrematureStarving", 0) * 0.1f;
+
+        yield return new WaitForSeconds(timeToWait - playerStartTimeBenefit);
+
+        // Let the player move and start ticking down their life
+        if (player != null)
+        {
+            player.GetComponent<Speed>().setCanMove();
+            player.GetComponent<HealthTicker>().isCurrentlyTicking = true;
         }
     }
 
