@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConsumableFood : Consumable
+public class ConsumableGem : Consumable
 {
-    [SerializeField] private float healthValue = 10f;
+    [SerializeField] private int gemValue = 1;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit other: " + other.name);
-        Health health = other.GetComponent<Health>();
-        // Can't be eaten by something that doesn't have health
-        if (health == null)
-        {
-            Debug.Log("Doesn't have health component: " + other.name);
-            return;
-        }
+        // Check if the other object is the player
+        if (!other.CompareTag("Player")) return;
 
-        health.Heal(healthValue);
+        // Increase the players gem/currency count
+
+        // Get the players gem count from the PlayerPrefs
+        int currentGemCount = PlayerPrefs.GetInt("PlayerCurrency", 0);
+        currentGemCount += gemValue;
+
+        // Save the new gem count to the PlayerPrefs
+        PlayerPrefs.SetInt("PlayerCurrency", currentGemCount);
+        PlayerPrefs.Save(); // Ensure the data is written to disk
 
         // Trigger the event that this consumable has been picked up
         gameGlobalEvents.onConsumablePickedUp.Invoke(gameObject);
@@ -31,10 +33,10 @@ public class ConsumableFood : Consumable
         base.Start();
 
         // Set the consumable name
-        consumableName = "Food";
+        consumableName = "Gem";
 
         // Trigger the event that this food has spawned
-        gameGlobalEvents.onFoodSpawned.Invoke(gameObject);
+        gameGlobalEvents.onGemSpawned.Invoke(gameObject);
     }
 
     protected override void OnDestroy()
@@ -42,6 +44,6 @@ public class ConsumableFood : Consumable
         base.OnDestroy();
 
         // Trigger the event that this food has been picked up
-        gameGlobalEvents.onFoodPickedUp.Invoke(gameObject);
+        gameGlobalEvents.onGemPickedUp.Invoke(gameObject);
     }
 }
