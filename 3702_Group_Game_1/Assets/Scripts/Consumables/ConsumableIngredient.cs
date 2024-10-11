@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConsumableFood : Consumable
+public class ConsumableIngredient : Consumable
 {
-    [SerializeField] private float healthValue = 10f;
+    [SerializeField] private int ingredientNumber = 1;
 
     private void OnTriggerEnter(Collider other)
     {
-        Health health = other.GetComponent<Health>();
+        IngregientsCarrier carrier = other.GetComponent<IngregientsCarrier>();
         // Can't be eaten by something that doesn't have health
-        if (health == null) return;
+        if (carrier == null) return;
 
-        health.Heal(healthValue);
+        carrier.AddIngredientsCarried(ingredientNumber);
 
         // Trigger the event that this consumable has been picked up
         gameGlobalEvents.onConsumablePickedUp.Invoke(gameObject);
@@ -26,10 +26,10 @@ public class ConsumableFood : Consumable
         base.Start();
 
         // Set the consumable name
-        consumableName = "Food";
+        consumableName = "Ingredient";
 
         // Trigger the event that this food has spawned
-        gameGlobalEvents.onFoodSpawned.Invoke(gameObject);
+        gameGlobalEvents.onIngredientSpawned.Invoke(gameObject);
     }
 
     protected override void OnDestroy()
@@ -37,6 +37,6 @@ public class ConsumableFood : Consumable
         base.OnDestroy();
 
         // Trigger the event that this food has been picked up
-        gameGlobalEvents.onFoodPickedUp.Invoke(gameObject);
+        gameGlobalEvents.onIngredientPickedUp.Invoke(gameObject);
     }
 }

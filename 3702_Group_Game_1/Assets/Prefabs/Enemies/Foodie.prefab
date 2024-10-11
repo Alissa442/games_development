@@ -101,7 +101,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7802640985072266091}
   m_Layer: 0
   m_Name: Foodie
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,7 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b1cd1d4bc65314585edf8205207390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialHealth: 20
+  _initialHealth: 60
+  healingBonus: 0
+  poisonBonus: 0
   _currentHealth: 0
   onHealthChange:
     m_PersistentCalls:
@@ -345,6 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 1
+  effectTimeBonus: 0
 --- !u!114 &4864476552824583463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
+  effectTimeBonus: 0
+  canMove: 1
 --- !u!114 &5753745439882648605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,8 +378,7 @@ MonoBehaviour:
   _timeBetweenTicks: 0.5
   _damagePerTick: 0.5
   _health: {fileID: 0}
-  timeOfLastTick: 0
-  timeOfNextTick: 0
+  isCurrentlyTicking: 1
 --- !u!114 &7194081059911379339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +393,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 0}
   target: {fileID: 0}
+  currentStateName: 
+  whoPickedUpLastConsumable: {fileID: 0}
+  health: 0
   gameGlobalEvents: {fileID: 0}
   gameState: {fileID: 0}
 --- !u!114 &405157663554118334
@@ -415,12 +422,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e7dd10eee7bdc42aa68c641a594e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
   timeToDie: 0
   onDeath:
     m_PersistentCalls:
       m_Calls: []
   spawnsOnDeath: []
+  useObjectPool: 0
+  isDead: 0
 --- !u!1 &6506557184216320336
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &689335740044225068
 Transform:
   m_ObjectHideFlags: 0

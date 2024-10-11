@@ -101,7 +101,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 2998368560085659670}
   m_Layer: 0
   m_Name: MineLayer
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b1cd1d4bc65314585edf8205207390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialHealth: 45
+  _initialHealth: 60
+  healingBonus: 0
+  poisonBonus: 0
   _currentHealth: 0
   onHealthChange:
     m_PersistentCalls:
@@ -366,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 1
+  effectTimeBonus: 0
 --- !u!114 &2045836729869408151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
+  effectTimeBonus: 0
+  canMove: 1
 --- !u!114 &5865413894448085815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,8 +399,7 @@ MonoBehaviour:
   _timeBetweenTicks: 0.5
   _damagePerTick: 0.5
   _health: {fileID: 0}
-  timeOfLastTick: 0
-  timeOfNextTick: 0
+  isCurrentlyTicking: 1
 --- !u!114 &7584252461683893118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5315957556540665548
 Transform:
   m_ObjectHideFlags: 0

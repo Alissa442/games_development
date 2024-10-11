@@ -37,6 +37,9 @@ public class GameGlobalEventsSO : ScriptableObject
     public UnityEvent<GameObject> onMineSpawned = new UnityEvent<GameObject>();
     public UnityEvent<GameObject> onMinePickedUp = new UnityEvent<GameObject>();
 
+    public UnityEvent<GameObject> onIngredientSpawned = new UnityEvent<GameObject>();
+    public UnityEvent<GameObject> onIngredientPickedUp = new UnityEvent<GameObject>();
+    public UnityEvent<GameObject> onIngredientDelivered = new UnityEvent<GameObject>();
 
     // Lazy Loading Singleton pattern inside a SCRIPTABLE OBJECT!
     private static GameGlobalEventsSO instance;

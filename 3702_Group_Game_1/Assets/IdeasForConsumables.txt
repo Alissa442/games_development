@@ -1,6 +1,8 @@
 
 What we currently have:
 
+PlayerCurrency
+
 Health - Increases the health by x
 SpeedBoost - Increases the speed by x for y seconds
 Poison - Decreased the health by x
