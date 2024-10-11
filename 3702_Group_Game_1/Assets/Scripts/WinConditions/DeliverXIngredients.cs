@@ -71,7 +71,7 @@ public class DeliverXIngredients : WinCondition
 
     public void UpdateUI()
     {
-        foodText.text = $"Ingredient Delivered \n{ingredientsDelivered} / {ingredientsToDeliver}";
+        foodText.text = $"Deliver Items\n{ingredientsDelivered} / {ingredientsToDeliver}";
     }
 
 }

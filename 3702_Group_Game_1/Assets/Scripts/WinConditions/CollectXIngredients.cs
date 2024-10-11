@@ -71,6 +71,6 @@ public class CollectXIngredients : WinCondition
 
     public void UpdateUI()
     {
-        uiText.text = $"Grab Ingredients \n{itemsCollected} / {amountToCollect}";
+        uiText.text = $"Get Items\n{itemsCollected} / {amountToCollect}";
     }
 }
