@@ -33,7 +33,7 @@ public class DeliverXIngredients : WinCondition
         _gameGlobalEvents?.onConsumableDeliveredUpByWhom?.RemoveListener(OnConsumableDelivered);
     }
 
-    public void OnConsumableDelivered(GameObject consumable, GameObject whoPickedItUp)
+    public void OnConsumableDelivered(GameObject whoPickedItUp)
     {
         // Check the ingredient was collected by the player
         if (whoPickedItUp != player)
@@ -42,13 +42,13 @@ public class DeliverXIngredients : WinCondition
             return;
         }
 
-        // Check it was a Ingredient that was picked up
-        ConsumableIngredient item = consumable.GetComponent<ConsumableIngredient>();
-        if (item == null)
-        {
-            //Debug.Log("Not ingredient");
-            return;
-        }
+        //// Check it was a Ingredient that was picked up
+        //ConsumableIngredient item = consumable.GetComponent<ConsumableIngredient>();
+        //if (item == null)
+        //{
+        //    //Debug.Log("Not ingredient");
+        //    return;
+        //}
 
         // If so, increment the ingredient collected count
         ingredientsDelivered++;

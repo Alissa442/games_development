@@ -54,6 +54,9 @@ public class ChefStateMachine : StateMachine
             for (int i = 0; i < amount; i++)
             {
                 suppliers.Enqueue(other.gameObject);
+
+                // Register supplier has delivered event
+                gameGlobalEvents.onConsumableDeliveredUpByWhom.Invoke(other.gameObject);
             }
             currentIngredientsToCook += amount;
             carrier.RemoveIngredientsAmount(amount);

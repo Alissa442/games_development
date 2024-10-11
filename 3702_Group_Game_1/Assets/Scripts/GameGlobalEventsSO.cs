@@ -19,7 +19,7 @@ public class GameGlobalEventsSO : ScriptableObject
     public UnityEvent<GameObject> onConsumablePickedUp = new UnityEvent<GameObject>();
     // Which was picked up and by whom
     public UnityEvent<GameObject, GameObject> onConsumablePickedUpByWhom = new UnityEvent<GameObject, GameObject>(); // Who picked up the consumable
-    public UnityEvent<GameObject, GameObject> onConsumableDeliveredUpByWhom = new UnityEvent<GameObject, GameObject>(); // Who delivered the consumable
+    public UnityEvent<GameObject> onConsumableDeliveredUpByWhom = new UnityEvent<GameObject>(); // Who delivered the consumable
 
     // Specific consumable events
     public UnityEvent<GameObject> onFoodSpawned = new UnityEvent<GameObject>();
