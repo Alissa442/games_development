@@ -37,6 +37,6 @@ public class ConsumableFood : Consumable
         base.OnDestroy();
 
         // Trigger the event that this food has been picked up
-        gameGlobalEvents.onFoodPickedUp.Invoke(gameObject);
+        gameGlobalEvents?.onFoodPickedUp?.Invoke(gameObject);
     }
 }

@@ -30,7 +30,7 @@ public class DeliverXIngredients : WinCondition
     private void OnDestroy()
     {
         // Unregister with the ingredient collect script the event of ingredient delivery
-        _gameGlobalEvents.onConsumableDeliveredUpByWhom.RemoveListener(OnConsumableDelivered);
+        _gameGlobalEvents?.onConsumableDeliveredUpByWhom?.RemoveListener(OnConsumableDelivered);
     }
 
     public void OnConsumableDelivered(GameObject consumable, GameObject whoPickedItUp)
@@ -71,7 +71,7 @@ public class DeliverXIngredients : WinCondition
 
     public void UpdateUI()
     {
-        foodText.text = $"Deliver Items\n{ingredientsDelivered} / {ingredientsToDeliver}";
+        foodText.text = $"Deliver Boxes\n{ingredientsDelivered} / {ingredientsToDeliver}";
     }
 
 }

@@ -29,7 +29,7 @@ public class CollectXGems : WinCondition
     private void OnDestroy()
     {
         // Unregister with the food collect script the event of food collection
-        _gameGlobalEvents.onConsumablePickedUpByWhom.RemoveListener(OnConsumableCollected);
+        _gameGlobalEvents?.onConsumablePickedUpByWhom?.RemoveListener(OnConsumableCollected);
     }
 
     public void OnConsumableCollected(GameObject consumable, GameObject whoPickedItUp)

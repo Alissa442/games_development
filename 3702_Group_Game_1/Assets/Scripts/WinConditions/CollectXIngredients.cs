@@ -30,7 +30,7 @@ public class CollectXIngredients : WinCondition
     private void OnDestroy()
     {
         // Unregister with the food collect script the event of food collection
-        _gameGlobalEvents.onConsumablePickedUpByWhom.RemoveListener(OnConsumableCollected);
+        _gameGlobalEvents?.onConsumablePickedUpByWhom?.RemoveListener(OnConsumableCollected);
     }
 
     public void OnConsumableCollected(GameObject consumable, GameObject whoPickedItUp)
@@ -71,6 +71,6 @@ public class CollectXIngredients : WinCondition
 
     public void UpdateUI()
     {
-        uiText.text = $"Get Items\n{itemsCollected} / {amountToCollect}";
+        uiText.text = $"Get Boxes\n{itemsCollected} / {amountToCollect}";
     }
 }
