@@ -15,6 +15,7 @@ public class DoNotDie : WinCondition
         // Register with the player Die Script the event of their death
         player.GetComponent<Health>().onDeath.AddListener(PlayerDied);
 
+        IsWinConditionMet = true;
     }
 
     public void PlayerDied()
@@ -22,6 +23,7 @@ public class DoNotDie : WinCondition
         playersAlive--;
         if (playersAlive == 0)
         {
+            IsWinConditionMet = false;
             HasLost = true;
         }
     }
