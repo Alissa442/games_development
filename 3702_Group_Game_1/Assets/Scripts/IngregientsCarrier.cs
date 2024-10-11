@@ -16,4 +16,9 @@ public class IngregientsCarrier : MonoBehaviour
         ingredientsCarried += amount;
     }
 
+    public void RemoveIngredientsAmount(int amount)
+    {
+        ingredientsCarried -= amount;
+    }
+
 }

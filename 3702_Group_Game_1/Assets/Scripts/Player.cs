@@ -75,7 +75,8 @@ public class Player : MonoBehaviour
             // Get the Health component of the enemy
             Health enemyHealth = enemy.GetComponent<Health>();
             // Decrease the poisonBonus of the enemy - Make them take more damage
-            enemyHealth.poisonBonus -= venomousLevels;
+            if (enemyHealth != null)
+                enemyHealth.poisonBonus -= venomousLevels;
         }
 
     }

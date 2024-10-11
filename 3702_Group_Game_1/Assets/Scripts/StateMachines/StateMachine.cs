@@ -39,7 +39,7 @@ public abstract class StateMachine : MonoBehaviour
 
         gameGlobalEvents = GameGlobalEventsSO.Instance;
         gameGlobalEvents.onConsumablePickedUpByWhom.AddListener(OnComsumablePickedUp);
-        GetComponent<Health>().onHealthChange.AddListener(UpdateHealth);
+        GetComponent<Health>()?.onHealthChange.AddListener(UpdateHealth);
 
     }
 

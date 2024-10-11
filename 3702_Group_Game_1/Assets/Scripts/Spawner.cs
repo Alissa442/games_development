@@ -66,7 +66,13 @@ public class Spawner : MonoBehaviour
 
         //Debug.Log("Spawning at " + randomPosition);
 
-        Instantiate(prefab, transform.position + randomPosition, Quaternion.identity);
+        Instantiate(prefab, randomPosition, Quaternion.identity);
+    }
+
+    // External call to force spawn
+    public void ForceSpawn()
+    {
+        Instantiate(prefab, transform.position + GetRandomSpawnPosition(), Quaternion.identity);
     }
 
     public Vector3 GetRandomSpawnPosition()
