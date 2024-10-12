@@ -6,8 +6,6 @@ public class Cooking : IState
 {
     private StateMachine _stateMachine;
     private ChefStateMachine _chefStateMachine;
-    private bool isTantruming = false;
-    private float tantrumEndTime;
 
     private IState waitingState;
 

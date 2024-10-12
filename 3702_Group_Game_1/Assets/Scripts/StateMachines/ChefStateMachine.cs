@@ -40,6 +40,8 @@ public class ChefStateMachine : StateMachine
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triggered Entry by: " + other.gameObject.name);
+
         // Checking if the object has an IngredientsCarrier component
         IngregientsCarrier carrier = other.GetComponent<IngregientsCarrier>();
         if (carrier == null)

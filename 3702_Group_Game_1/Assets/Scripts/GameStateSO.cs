@@ -22,6 +22,11 @@ public class GameStateSO : ScriptableObject
     public List<GameObject> rangeBoosts = new List<GameObject>();
     public List<GameObject> poisons = new List<GameObject>();
 
+    public List<GameObject> ingredients = new List<GameObject>();
+    public List<GameObject> freezes = new List<GameObject>();
+    public List<GameObject> gems = new List<GameObject>();
+    public List<GameObject> mines = new List<GameObject>();
+
     // Lazy Loading Singleton pattern inside a SCRIPTABLE OBJECT!
     private static GameStateSO instance;
     public static GameStateSO Instance
@@ -62,6 +67,15 @@ public class GameStateSO : ScriptableObject
         gameGlobalEvents.onPoisonSpawned.AddListener(OnPoisonSpawned);
         gameGlobalEvents.onPoisonPickedUp.AddListener(OnPoisonPickedUp);
 
+        gameGlobalEvents.onIngredientSpawned.AddListener(OnIngredientsSpawned);
+        gameGlobalEvents.onIngredientPickedUp.AddListener(OnIngredientsPickedUp);
+        gameGlobalEvents.onFreezeSpawned.AddListener(OnFreezesSpawned);
+        gameGlobalEvents.onFreezePickedUp.AddListener(OnFreezesPickedUp);
+        gameGlobalEvents.onMineSpawned.AddListener(OnMinesSpawned);
+        gameGlobalEvents.onMinePickedUp.AddListener(OnMinesPickedUp);
+        gameGlobalEvents.onGemSpawned.AddListener(OnGemsSpawned);
+        gameGlobalEvents.onGemPickedUp.AddListener(OnGemsPickedUp);
+
     }
 
     private void OnDisable()
@@ -86,6 +100,14 @@ public class GameStateSO : ScriptableObject
         gameGlobalEvents.onPoisonSpawned.RemoveListener(OnPoisonSpawned);
         gameGlobalEvents.onPoisonPickedUp.RemoveListener(OnPoisonPickedUp);
 
+        gameGlobalEvents.onIngredientSpawned.RemoveListener(OnIngredientsSpawned);
+        gameGlobalEvents.onIngredientPickedUp.RemoveListener(OnIngredientsPickedUp);
+        gameGlobalEvents.onFreezeSpawned.RemoveListener(OnFreezesSpawned);
+        gameGlobalEvents.onFreezePickedUp.RemoveListener(OnFreezesPickedUp);
+        gameGlobalEvents.onGemSpawned.RemoveListener(OnGemsSpawned);
+        gameGlobalEvents.onGemPickedUp.RemoveListener(OnGemsPickedUp);
+        gameGlobalEvents.onMineSpawned.RemoveListener(OnMinesSpawned);
+        gameGlobalEvents.onMinePickedUp.RemoveListener(OnMinesPickedUp);
     }
 
     // Shortcuts for Player and NPC Listeners
@@ -105,6 +127,15 @@ public class GameStateSO : ScriptableObject
     private void OnRangeBoostPickedUp(GameObject obj) { rangeBoosts.Remove(obj); }
     private void OnPoisonSpawned(GameObject obj) { poisons.Add(obj); }
     private void OnPoisonPickedUp(GameObject obj) { poisons.Remove(obj); }
+
+    private void OnIngredientsSpawned(GameObject obj) { ingredients.Add(obj); }
+    private void OnIngredientsPickedUp(GameObject obj) { ingredients.Remove(obj); }
+    private void OnFreezesSpawned(GameObject obj) { freezes.Add(obj); }
+    private void OnFreezesPickedUp(GameObject obj) { freezes.Remove(obj); }
+    private void OnGemsSpawned(GameObject obj) { gems.Add(obj); }
+    private void OnGemsPickedUp(GameObject obj) { gems.Remove(obj); }
+    private void OnMinesSpawned(GameObject obj) { mines.Add(obj); }
+    private void OnMinesPickedUp(GameObject obj) { mines.Remove(obj); }
 
 
     // Helper Method
