@@ -65,7 +65,7 @@ public abstract class StateMachine : MonoBehaviour
         // Be a good citizen and clean up after yourself
         // Removing event listeners
         gameGlobalEvents.onConsumablePickedUpByWhom.RemoveListener(OnComsumablePickedUp);
-        GetComponent<Health>().onHealthChange.RemoveListener(UpdateHealth);
+        GetComponent<Health>()?.onHealthChange.RemoveListener(UpdateHealth);
     }
 
     /// <summary>
