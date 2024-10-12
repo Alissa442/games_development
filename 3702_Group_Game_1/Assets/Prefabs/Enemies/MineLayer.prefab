@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePrefabs: {fileID: 0}
-  offset: {x: 0, y: 2}
+  offset: {x: 0, y: -2}
 --- !u!135 &4044220519412282374
 SphereCollider:
   m_ObjectHideFlags: 0
