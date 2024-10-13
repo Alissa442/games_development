@@ -41,6 +41,12 @@ public class PlayerController : MonoBehaviour
             Vector3 movement = new Vector3(horizontal, 0, vertical);
             transform.position += movement * _speed.movementSpeed * Time.deltaTime;
 
+            // Clamp the position to clampLeft, clampRight, clampTop, clampBottom
+            Vector3 newPosition = transform.position + movement * _speed.movementSpeed * Time.deltaTime;
+            newPosition.x = Mathf.Clamp(newPosition.x, clampLeft, clampRight);
+            newPosition.z = Mathf.Clamp(newPosition.z, clampBottom, clampTop);
+            transform.position = newPosition;
+
             // lerp to face the direction of movement
             if (movement != Vector3.zero)
             {

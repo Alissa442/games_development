@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8938619678812617289}
   - component: {fileID: 7802006328614831633}
   - component: {fileID: 6207272632811774573}
+  - component: {fileID: 7554802780647296585}
   - component: {fileID: 3493915636522149522}
   - component: {fileID: 8470892649446084525}
   - component: {fileID: 3717176171580772766}
@@ -99,6 +100,19 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7554802780647296585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254779403785836219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddf0808817099741958922293cbc2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientsCarried: 0
 --- !u!114 &3493915636522149522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +129,10 @@ MonoBehaviour:
   state: 0
   turnSpeed: 10
   _speed: {fileID: 0}
+  clampLeft: -17.6
+  clampRight: 17.77
+  clampTop: 17.14
+  clampBottom: -18
 --- !u!114 &8470892649446084525
 MonoBehaviour:
   m_ObjectHideFlags: 0
