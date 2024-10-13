@@ -110,6 +110,13 @@ public class LookingForIngredients : IState
 
         if (closestItem == null)
         {
+
+            // Set animation to idling
+            _stateMachine.animator.SetBool("isAttacking", false);
+            _stateMachine.animator.SetBool("isCasting", false);
+            _stateMachine.animator.SetBool("isRunning", false);
+            _stateMachine.animator.SetBool("isIdle", true);
+
             return;
         }
 

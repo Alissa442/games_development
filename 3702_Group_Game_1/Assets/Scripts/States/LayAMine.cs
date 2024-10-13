@@ -103,6 +103,10 @@ public class LayAMine : IState
             else
             {
                 // Play laying mine animation
+                _stateMachine.animator.SetBool("isIdle", false);
+                _stateMachine.animator.SetBool("isAttacking", false);
+                _stateMachine.animator.SetBool("isRunning", false);
+                _stateMachine.animator.SetBool("isCasting", true);
             }
         }
     }
@@ -125,6 +129,12 @@ public class LayAMine : IState
 
         _stateMachine._agent.SetDestination(minePosition);
         _stateMachine._agent.stoppingDistance = distanceToLay;
+
+        // Play laying mine animation
+        _stateMachine.animator.SetBool("isIdle", false);
+        _stateMachine.animator.SetBool("isAttacking", false);
+        _stateMachine.animator.SetBool("isCasting", false);
+        _stateMachine.animator.SetBool("isRunning", true);
 
         // Lay the mine a distance away from the MineLayer to make sure its out of its own range
         if (Vector3.Distance(_stateMachine.transform.position, minePosition) < distanceToLay)

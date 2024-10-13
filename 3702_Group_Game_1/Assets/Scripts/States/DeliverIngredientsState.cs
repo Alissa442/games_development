@@ -22,6 +22,12 @@ public class DeliverIngredientsState : IState
             Debug.Log("Starting delivery");
             _stateMachine._agent.SetDestination(deliveryLocation.transform.position);
             isDelivering = true;
+
+            // Set animation to running
+            _stateMachine.animator.SetBool("isIdle", false);
+            _stateMachine.animator.SetBool("isAttacking", false);
+            _stateMachine.animator.SetBool("isCasting", false);
+            _stateMachine.animator.SetBool("isRunning", true);
         }
         else
         {

@@ -20,17 +20,10 @@ public abstract class StateMachine : MonoBehaviour
     //public ServiceLocator serviceLocator;
     public GameGlobalEventsSO gameGlobalEvents;
     public GameStateSO gameState;
+    public Animator animator;
 
     protected virtual void OnEnable()
     {
-        //serviceLocator = ServiceLocator.Instance;
-        //gameState = ServiceLocator.Instance.GetService<GameStateSO>("GameState");
-
-        //if (gameGlobalEvents == null)
-        //    gameGlobalEvents = Resources.Load<GameGlobalEventsSO>("GameGlobalEvents");
-        //if (gameState == null)
-        //    gameState = Resources.Load<GameStateSO>("GameState");
-
         _agent = GetComponent<NavMeshAgent>();
 
         // Kind of cheating. Turned it into a lazy loading singleton for easy access
@@ -40,6 +33,9 @@ public abstract class StateMachine : MonoBehaviour
         gameGlobalEvents = GameGlobalEventsSO.Instance;
         gameGlobalEvents.onConsumablePickedUpByWhom.AddListener(OnComsumablePickedUp);
         GetComponent<Health>()?.onHealthChange.AddListener(UpdateHealth);
+
+        // Get the animator in child
+        animator = GetComponentInChildren<Animator>();
 
     }
 

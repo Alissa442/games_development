@@ -41,6 +41,11 @@ public class ChefIsRaging : IState
         // Time to rage again
 
         // Play animation
+        _stateMachine.animator.SetBool("isIdle", false);
+        _stateMachine.animator.SetBool("isCasting", false);
+        _stateMachine.animator.SetBool("isRunning", false);
+        _stateMachine.animator.SetBool("isAttacking", true);
+
         Debug.Log("Raging - pew pew pew");
 
         // Set the next time to rage

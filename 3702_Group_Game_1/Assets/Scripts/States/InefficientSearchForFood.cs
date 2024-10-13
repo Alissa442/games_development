@@ -25,6 +25,11 @@ public class InefficientSearchForFood : IState
         {
             _stateMachine.target = null; // Defensive programming just in case
 
+            _stateMachine.animator.SetBool("isAttacking", false);
+            _stateMachine.animator.SetBool("isCasting", false);
+            _stateMachine.animator.SetBool("isRunning", false);
+            _stateMachine.animator.SetBool("isIdle", true);
+
             // Do nothing. Just stare at the wall
             return;
         }

@@ -34,6 +34,13 @@ public class Cooking : IState
         if (_chefStateMachine.currentIngredientsToCook <= 0)
         {
             //Debug.Log("Changing to Waiting State");
+
+            // TODO Start cooking animation
+            _stateMachine.animator.SetBool("isAttacking", false);
+            _stateMachine.animator.SetBool("isRunning", false);
+            _stateMachine.animator.SetBool("isCasting", false);
+            _stateMachine.animator.SetBool("isIdle", true);
+
             // Transition to the next state
             _stateMachine.currentState = waitingState;
         }
@@ -44,6 +51,10 @@ public class Cooking : IState
             cookingEndTime = Time.time + _chefStateMachine.cookingTime;
             Debug.Log($"Starting to cook {_chefStateMachine.currentIngredientsToCook} ingredients availabble.");
             // TODO Start cooking animation
+            _stateMachine.animator.SetBool("isIdle", false);
+            _stateMachine.animator.SetBool("isAttacking", false);
+            _stateMachine.animator.SetBool("isRunning", false);
+            _stateMachine.animator.SetBool("isCasting", true);
         }
 
         if (isCooking && Time.time >= cookingEndTime && _chefStateMachine.currentIngredientsToCook > 0) {

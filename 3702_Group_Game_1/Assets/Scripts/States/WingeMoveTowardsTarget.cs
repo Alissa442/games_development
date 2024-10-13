@@ -42,6 +42,14 @@ public class WingeMoveTowardsTarget : IState
         {
             // If there is a target, tell the navmesh agent to move towards it
             _stateMachine._agent.SetDestination(_stateMachine.target.transform.position);
+
+            // Set animation to running
+            _stateMachine.animator.SetBool("isAttacking", false);
+            _stateMachine.animator.SetBool("isCasting", false);
+            _stateMachine.animator.SetBool("isTantrum", false);
+            _stateMachine.animator.SetBool("isIdle", false);
+            _stateMachine.animator.SetBool("isRunning", true);
+
             return;
         }
 

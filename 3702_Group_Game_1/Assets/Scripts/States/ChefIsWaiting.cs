@@ -59,6 +59,11 @@ public class ChefIsWaiting : IState
         // Say random things every few seconds
         if (Time.time % 5 == 0)
         {
+            _stateMachine.animator.SetBool("isAttacking", false);
+            _stateMachine.animator.SetBool("isCasting", false);
+            _stateMachine.animator.SetBool("isRunning", false);
+            _stateMachine.animator.SetBool("isIdle", true);
+
             SayRandomThings();
         }
 

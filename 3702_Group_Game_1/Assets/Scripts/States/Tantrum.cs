@@ -45,7 +45,14 @@ public class Tantrum : IState
             tantrumEndTime = Time.time + tantrumDuration;
 
             Debug.Log("Hey, that was mine. Starting Tantrum.");
-            // TODO Start Tantrum animation
+            // TODO Start Tantrum animation            
+            
+            // Set animation to idling
+            _stateMachine.animator.SetBool("isAttacking", false);
+            _stateMachine.animator.SetBool("isCasting", false);
+            _stateMachine.animator.SetBool("isRunning", false);
+            _stateMachine.animator.SetBool("isIdle", false);
+            _stateMachine.animator.SetBool("isTantrum", true);
         }
 
         if (tantrumEndTime < Time.time)
@@ -55,6 +62,8 @@ public class Tantrum : IState
 
             Debug.Log("Tantrum Over");
             // TODO Stop the tantrum animation
+            _stateMachine.animator.SetBool("isTantrum", false);
+            _stateMachine.animator.SetBool("isIdle", true);
 
             // Change state to onTantrumDone now that the tantrum is over.
             _stateMachine.currentState = onTantrumDone;

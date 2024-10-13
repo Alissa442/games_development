@@ -19,23 +19,44 @@ public class PlayerController : MonoBehaviour
     public float clampTop = 10f;
     public float clampBottom = -10f;
 
+    public Animator animator;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _speed = GetComponent<Speed>();
+
+        // Get the animator in child
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
         // Don't move if you can't move
         if (!_speed.canMove)
+        {
+            animator.SetBool("isRunning", false);
+            animator.SetBool("isIdle", true);
             return;
+        }
 
         if (state == ControllerState.ManualControl)
         {
             // Top down 2d Player Controller on the X and Z axis
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
+
+            // If the player is moving, set the animation to running
+            if (horizontal != 0 || vertical != 0)
+            {
+                animator.SetBool("isIdle", false);
+                animator.SetBool("isRunning", true);
+            }
+            else
+            {
+                animator.SetBool("isRunning", false);
+                animator.SetBool("isIdle", true);
+            }
 
             // Move the player
             Vector3 movement = new Vector3(horizontal, 0, vertical);
