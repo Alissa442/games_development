@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour
     public void LoadMainMenu() => UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     public void LoadUpgradeMenu() => UnityEngine.SceneManagement.SceneManager.LoadScene("Upgrades");
     public void LoadSettingsMenu() => UnityEngine.SceneManagement.SceneManager.LoadScene("Settings");
+    public void LoadCreditsMenu() => UnityEngine.SceneManagement.SceneManager.LoadScene("Credits");
     public void LoadScene1() => UnityEngine.SceneManagement.SceneManager.LoadScene("Scene1");
     public void LoadScene2() => UnityEngine.SceneManagement.SceneManager.LoadScene("Scene2");
     public void LoadScene3() => UnityEngine.SceneManagement.SceneManager.LoadScene("Scene3");

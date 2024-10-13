@@ -209,7 +209,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 268789779}
-  - component: {fileID: 268789778}
   - component: {fileID: 268789780}
   m_Layer: 0
   m_Name: LoadingScreenManager
@@ -218,19 +217,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &268789778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 268789777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d57e31d343dbbc4ba564ba9d4e6d75b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: Main Menu
 --- !u!4 &268789779
 Transform:
   m_ObjectHideFlags: 0
