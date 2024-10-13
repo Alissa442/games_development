@@ -172,7 +172,7 @@ MonoBehaviour:
   gameGlobalEvents: {fileID: 0}
   gameState: {fileID: 0}
   minePrefabs:
-  - {fileID: 653434239276818215, guid: 86cca5593c05c0d418e7290483b76f1a, type: 3}
+  - {fileID: 4995793076342266618, guid: bedff6f4afe8a894f874344955b22f3c, type: 3}
 --- !u!195 &8833701805803919322
 NavMeshAgent:
   m_ObjectHideFlags: 0
