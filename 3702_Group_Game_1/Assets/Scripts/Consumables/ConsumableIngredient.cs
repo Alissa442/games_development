@@ -5,9 +5,12 @@ using UnityEngine;
 public class ConsumableIngredient : Consumable
 {
     [SerializeField] private int ingredientNumber = 1;
+    bool isPickedUp = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isPickedUp) return; // Prevents double picking up of the consumable
+
         IngregientsCarrier carrier = other.GetComponent<IngregientsCarrier>();
         // Can't be eaten by something that doesn't have health
         if (carrier == null) return;
@@ -19,6 +22,8 @@ public class ConsumableIngredient : Consumable
 
         // Trigger the event that this food has been picked up by whom
         gameGlobalEvents.onConsumablePickedUpByWhom.Invoke(gameObject, other.gameObject);
+
+        isPickedUp = true;
     }
 
     protected override void Start()
