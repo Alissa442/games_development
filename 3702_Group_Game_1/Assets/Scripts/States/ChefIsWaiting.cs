@@ -47,7 +47,7 @@ public class ChefIsWaiting : IState
             return;
         }
 
-        if (Time.time >= _chefStateMachine.timeBeforeRage)
+        if (Time.time >= _chefStateMachine.startedTime + _chefStateMachine.timeBeforeRage)
         {
             //Debug.Log("Changing to rage State");
             _chefStateMachine.isEnraged = true;

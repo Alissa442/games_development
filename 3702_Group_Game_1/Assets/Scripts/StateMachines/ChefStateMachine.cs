@@ -21,6 +21,9 @@ public class ChefStateMachine : StateMachine
 
     void Start()
     {
+
+        startedTime = Time.time;
+
         // Create the States
         Cooking cookingState = new Cooking(this);
         ChefIsRaging chefIsRagingState = new ChefIsRaging(this);
