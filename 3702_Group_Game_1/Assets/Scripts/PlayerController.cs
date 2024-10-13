@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed = 10.0f;
     public Speed _speed;
 
+    public float clampLeft = -10f;
+    public float clampRight = 10f;
+    public float clampTop = 10f;
+    public float clampBottom = -10f;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();

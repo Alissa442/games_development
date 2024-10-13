@@ -6,9 +6,12 @@ public class ConsumableMine : Consumable
 {
     [SerializeField] private float range = 5f;
     [SerializeField] private float damage = 10f;
+    bool isPickedUp = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isPickedUp) return; // Prevents double picking up of the consumable
+
         // Check if the other object is the player or enemy
         if (!other.CompareTag("Player") && !other.CompareTag("Enemy")) return;
 
@@ -30,6 +33,8 @@ public class ConsumableMine : Consumable
 
         // Trigger the event that this food has been picked up by whom
         gameGlobalEvents.onConsumablePickedUpByWhom.Invoke(gameObject, other.gameObject);
+
+        isPickedUp = true;
     }
 
     protected override void Start()

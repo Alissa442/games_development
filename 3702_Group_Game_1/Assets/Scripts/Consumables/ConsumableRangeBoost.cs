@@ -6,9 +6,12 @@ public class ConsumableRangeBoost : Consumable
 {
     [SerializeField] private float rangeBoost = 3f;
     [SerializeField] private float lengthOfTime = 15f;
+    bool isPickedUp = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isPickedUp) return; // Prevents double picking up of the consumable
+
         Range range = other.GetComponent<Range>();
         // Can't be eaten by something that doesn't have health
         if (range == null) return;
@@ -20,6 +23,8 @@ public class ConsumableRangeBoost : Consumable
 
         // Trigger the event that this food has been picked up by whom
         gameGlobalEvents.onConsumablePickedUpByWhom.Invoke(gameObject, other.gameObject);
+
+        isPickedUp = true;
     }
 
     protected override void Start()

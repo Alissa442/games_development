@@ -5,9 +5,12 @@ using UnityEngine;
 public class ConsumableGem : Consumable
 {
     [SerializeField] private int gemValue = 1;
+    bool isPickedUp = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isPickedUp) return; // Prevents double picking up of the consumable
+
         // Check if the other object is the player
         if (!other.CompareTag("Player")) return;
 
@@ -26,6 +29,8 @@ public class ConsumableGem : Consumable
 
         // Trigger the event that this food has been picked up by whom
         gameGlobalEvents.onConsumablePickedUpByWhom.Invoke(gameObject, other.gameObject);
+
+        isPickedUp = true;
     }
 
     protected override void Start()

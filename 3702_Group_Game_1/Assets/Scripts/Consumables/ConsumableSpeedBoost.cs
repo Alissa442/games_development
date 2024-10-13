@@ -6,9 +6,12 @@ public class ConsumableSpeedBoost : Consumable
 {
     [SerializeField] private float speedBoost = 3f;
     [SerializeField] private float lengthOfTime = 15f;
+    bool isPickedUp = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isPickedUp) return; // Prevents double picking up of the consumable
+
         Speed speed = other.GetComponent<Speed>();
         // Can't be eaten by something that doesn't have health
         if (speed == null) return;
@@ -20,6 +23,8 @@ public class ConsumableSpeedBoost : Consumable
 
         // Trigger the event that this food has been picked up by whom
         gameGlobalEvents.onConsumablePickedUpByWhom.Invoke(gameObject, other.gameObject);
+
+        isPickedUp = true;
     }
 
     protected override void Start()
