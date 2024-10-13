@@ -16,10 +16,15 @@ public class LayAMine : IState
     private GameObject[] minePrefabs;   // The mines that the LayAMine can lay
     private float mineLayingTimer = 0.0f; // Set to when the mine will be laid
 
+    private Range range; // The range component of the player/enemy
+
     public LayAMine(StateMachine stateMachine)
     {
         this._stateMachine = stateMachine;
+
+        range = _stateMachine.GetComponent<Range>();
     }
+
     public void SetTransitions(params IState[] transitionsTo)
     {
         onNeedFood = transitionsTo[0];
@@ -116,22 +121,13 @@ public class LayAMine : IState
 
     private void MoveTowardsMineLayingPosition()
     {
-        //if (!isMovingToMine)
-        //{
-        //    // Get a new mine position from a spawner
-        //    // Not the best solution, but it works for now
-        //    Spawner spawner = GameObject.FindObjectOfType<Spawner>(); // Find the first spawner
-        //    minePosition = spawner.GetRandomSpawnPosition();
-
-        //    isMovingToMine = true;
-        //    Debug.Log("Moving to lay a mine");
-        //}
+        float distanceToLay = (range.range * 0.5f) + 2.5f;
 
         _stateMachine._agent.SetDestination(minePosition);
-        _stateMachine._agent.stoppingDistance = 3f;
+        _stateMachine._agent.stoppingDistance = distanceToLay;
 
-        // Lay the mine 3 distance away from the MineLayer
-        if (Vector3.Distance(_stateMachine.transform.position, minePosition) < 3f)
+        // Lay the mine a distance away from the MineLayer to make sure its out of its own range
+        if (Vector3.Distance(_stateMachine.transform.position, minePosition) < distanceToLay)
         {
             isMovingToMine = false;
             isLayingMine = true;

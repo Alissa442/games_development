@@ -224,7 +224,7 @@ MonoBehaviour:
   gameState: {fileID: 0}
   spawner: {fileID: 0}
   cookingTime: 3
-  timeBeforeRage: 120
+  timeBeforeRage: 65
   supplierLifeReward: 10
   rageDamagePerSecond: 10
   currentIngredientsToCook: 0
